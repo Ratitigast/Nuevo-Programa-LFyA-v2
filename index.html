@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+    <title>formDemo.html</title>
+    <meta charset = "UTF-8" />
+  </head>
+  <body>
+    <script language="javascript" type="text/javascript">
+    function limitText(limitField, limitNum) {
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        }
+    }
+    </script>
+
+
+    <h1>Form Demo</h1>
+    <form>
+      <fieldset>
+        <legend>Text input</legend>
+        <p>
+          <label>Ingresa tu gramática</label>
+          <input type="text" id="sessionNo" name="sessionNum" onKeyDown="limitText(this,5);"
+          onKeyUp="limitText(this,1);"" />
+        </p>
+        <p>Da click para observar los elementos de tu gramática</p>
+
+<button type="button" onclick="detectaNT();detectaP();Pterminales();NT_Terminales();">Try it</button>
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+      </fieldset>
+    </form>
+  </body>
+</html>
