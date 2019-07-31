@@ -12,24 +12,37 @@
         }
     }
     </script>
-
+    <script type="text/javascript" src="agregarInputs.js"></script>
 
     <h1>Form Demo</h1>
     <form>
       <fieldset>
-        <legend>Text input</legend>
-        <p>
-          <label>Ingresa tu gramática</label>
-          <input type="text" id="sessionNo" name="sessionNum" onKeyDown="limitText(this,5);"
-          onKeyUp="limitText(this,1);"" />
-        </p>
-        <p>Da click para observar los elementos de tu gramática</p>
+        <legend>Programa LFyA</legend>
 
-<button type="button" onclick="detectaNT();detectaP();Pterminales();NT_Terminales();">Try it</button>
-<p id="demo"></p>
-<p id="demo2"></p>
-<p id="demo3"></p>
-<p id="demo4"></p>
+        <table id="myTable">
+
+          <tr>
+
+            <th>Ingresa tu gramática</th>
+
+          </tr>
+
+          <tr>
+
+            <td><input type="text" id="NT" name="noterminal" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"" /></td>
+
+            <td><input type="text" id="produccion" name="noterminal" placeholder="Producción"/></td>
+
+            <td><button type="button" onclick="agregarInputs();">Agregar</button></td>
+
+          </tr>
+
+        </table>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
       </fieldset>
     </form>
   </body>
