@@ -13,6 +13,8 @@
     }
     </script>
     <script type="text/javascript" src="agregarInputs.js"></script>
+    <script type="text/javascript" src="recibeGramatica.js"></script>
+    <script type="text/javascript" src="revisaNT.js"></script>
 
     <h1>Form Demo</h1>
     <form>
@@ -29,20 +31,22 @@
 
           <tr>
 
-            <td><input type="text" id="NT" name="noterminal" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"" /></td>
+            <td><input type="text" class="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"></td>
 
-            <td><input type="text" id="produccion" name="noterminal" placeholder="Producción"/></td>
+            <td><input type="text" class="produccion" placeholder="Producción"/></td>
 
             <td><button type="button" onclick="agregarInputs();">Agregar</button></td>
+
+            <td><button type="button" onclick="recibeGramatica();revisaNT();">Iniciar</button></td>
 
           </tr>
 
         </table>
 
-    <p id="demo"></p>
-    <p id="demo2"></p>
-    <p id="demo3"></p>
-    <p id="demo4"></p>
+        <p id="demo"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
       </fieldset>
     </form>
   </body>

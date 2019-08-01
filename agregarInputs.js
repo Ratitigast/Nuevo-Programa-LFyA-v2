@@ -7,7 +7,7 @@ function agregarInputs(){
   entrada=document.createElement('input');  //Crea un elemento de etiqueta <input>
   entrada.type='text';  //Incluye el atributo "type" al elemento <input>
   entrada.placeholder='No terminal';  //Incluye el atributo "placeholder" al elemento <input>
-  entrada.id='NT'
+  entrada.setAttribute("class","nt");
 
   cell1.appendChild(entrada); //Agrega el elemento <input> al formulario indicado
 
@@ -15,7 +15,7 @@ function agregarInputs(){
   entrada2=document.createElement('input');  //Crea un elemento de etiqueta <input>
   entrada2.type='text';  //Incluye el atributo "type" al elemento <input>
   entrada2.placeholder='Producción';  //Incluye el atributo "placeholder" al elemento <input>
-  entrada2.id='produccion'
+  entrada2.setAttribute("class","produccion");
 
   cell2.appendChild(entrada2); //Agrega el elemento <input> al formulario indicado
 
