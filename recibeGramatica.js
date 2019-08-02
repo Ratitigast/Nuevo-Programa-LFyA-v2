@@ -17,10 +17,10 @@ function recibeGramatica(){
       temp=prod[i].value.split("|");
       this.ls_prod[i]=temp;
   }
-  
+
   this.ls_nt=this.ls_nt.filter(Boolean);
   this.ls_prod=this.ls_prod.filter(Boolean);
 
   document.getElementById("demo").innerHTML = "Lista de NT: "+ this.ls_nt;
-  document.getElementById("demo2").innerHTML = "Lista de producciones: "+ this.ls_prod[0][0].toString();
+  document.getElementById("demo2").innerHTML = "Lista de producciones: "+ this.ls_prod;
 }
