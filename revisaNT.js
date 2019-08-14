@@ -14,11 +14,11 @@ function revisaNT(){
 
       notlowercase=this.ls_prod[i][j].toString(); //Pasamos el contenido a string para poder realizar la conversión y la comparación
       lowercased=notlowercase.toLowerCase(); //Realizamos la conversión del contenido a mínusculas
-      array_notlowercase=notlowercase.split(" ");
+      array_notlowercase=notlowercase.split("");
 
-      while(k<array_notlowercase.length){
-        element=array_notlowercase[k];
-        element=element.toString();element_lowercased=element.toLowerCase();
+      while(k<array_notlowercase.length){//Mientras
+        element=array_notlowercase[k].toString();
+        element_lowercased=element.toLowerCase();
         if(element == element_lowercased){
           this.ls_T[aux1]=element; aux1++;
         }k++;
@@ -47,6 +47,6 @@ function revisaNT(){
 
 
   var newtope = document.createElement("P");
-  newtope.innerHTML="Arreglo de reglas "+this.ls_T;
-  document.getElementById("demo4").appendChild(newtope);
+  newtope.innerHTML="Lista de Terminales "+this.ls_T;
+  document.getElementById("demo").appendChild(newtope);
 }
