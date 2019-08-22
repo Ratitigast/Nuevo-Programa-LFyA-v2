@@ -56,17 +56,16 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
   }
 }*/
 for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
-    var prod = ls_prod[i];
     for (var j=0;j<this.ls_combinaciones.length; j++) {
+      var prod = ls_prod[i];
       found = prod.indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
       if(found != -1){
         prod.splice(found, 1, this.ls_combinaciones[j]);
         this.ls_prod3.push(prod);
-      }
-      else{
-        this.ls_prod3.push(prod);
+        i=0;
       }
     }
+    this.ls_prod3.push(ls_prod[i]);
 }
 
 document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
