@@ -7,16 +7,5 @@ function TablaVerdad(n){
       s = new Array(n + 1 - s.length).join('0') + s; // pad with zeroes
       tabla.push(s.split(""));
   }
-
-  var newtope = document.createElement("P");
-  newtope.innerHTML=" Tabla de verdad \n";
-  document.getElementById("demo5").appendChild(newtope);
-
-  for (var i=0;i<tabla.length; i++) {
-
-    var newtope = document.createElement("P");
-    newtope.innerHTML= tabla[i]+ " \n";
-    document.getElementById("demo5").appendChild(newtope);
-
-  }
+  return tabla;
 }
