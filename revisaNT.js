@@ -106,10 +106,10 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
 function SimbolosInaccesibles(ls_prod, ls_NT){ //Recibe la lista de producciones generadas del algortimo de Eliminacion de Muertos y la lista de NT
   var lista_2 = new Array();
   var queue = new Array(); // Cola para almacenar los NT que deben ser visitados (se maneja por indices)
-  var ls_nt2 = new Array();
+  this.ls_nt2 = new Array();
   queue.push(0); // Por defecto el indice 0 corresponde al simbolo inicial
   var i = 0, a = 0; // var auxiliar, que contendra el indice a visitar
-  ls_nt2[0] = ls_NT[0];
+  this.ls_nt2[0] = ls_NT[0];
   ls_NT[0] = ""; // Marcamos como visitado el NT con el primer indice
 
   do{
@@ -124,7 +124,7 @@ function SimbolosInaccesibles(ls_prod, ls_NT){ //Recibe la lista de producciones
             if(c == c.toUpperCase() && ls_NT.includes(c)){ // Valida que el Simbolo corresponda a un NT y que no este incluido en la lista de No Terminales
               var m = ls_NT.indexOf(c); // obtemos el indice correspondiente al NT
               queue.push(m);
-              ls_nt2.push(ls_NT[m]);
+              this.ls_nt2.push(ls_NT[m]);
               ls_NT[m] = ""; // Marcamos como visitado el Simbolo NT
             }
           }
@@ -138,11 +138,11 @@ function SimbolosInaccesibles(ls_prod, ls_NT){ //Recibe la lista de producciones
 
   for(var i=0;i<lista_2.length;i++){
     var newtope = document.createElement("P");
-    newtope.innerHTML= ls_nt2[i]+" := "+lista_2[i]+"\n";
+    newtope.innerHTML= this.ls_nt2[i]+" := "+lista_2[i]+"\n";
     document.getElementById("demo4").appendChild(newtope);
   }
 
-  SimbolosVacios(lista_2, ls_nt2);
+  SimbolosVacios(lista_2, this.ls_nt2);
 
   return lista_2;
 

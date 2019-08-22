@@ -2,8 +2,8 @@ function SimbolosVacios(ls_prod, ls_NT){
 
   var list_vacio = new Array();//Lista que contendrá los NT que generen vacíos
   var lsprod_empty = new Array();//lista que contendrá aquellas producciones a las que se le harán combinaciones
-  var ls_combinaciones = new Array();
-  var ls_prod3 = new Array();//Lista que guardará las producciones finales
+  this.ls_combinaciones = new Array();
+  this.ls_prod3 = new Array();//Lista que guardará las producciones finales
 
   for(var i  = 0; i < ls_prod.length; i++){//Revisa aquellas producciones que contengan el símbolo de vacío
       if(ls_prod[i].indexOf('#') != -1){
@@ -27,7 +27,7 @@ function SimbolosVacios(ls_prod, ls_NT){
                                                                           //en la lista de producciones a combinar
               lsprod_empty.push(prod);//Se agrega la produccion actual a la lista
               var combinacion = GeneraCombinaciones(prod);//Generaos la combinación de la producción actual
-              ls_combinaciones.push(combinacion);//Almacenamos cada combinación
+              this.ls_combinaciones.push(combinacion);//Almacenamos cada combinación
             }
           }
         }
@@ -40,19 +40,42 @@ function SimbolosVacios(ls_prod, ls_NT){
   var newtope = document.createElement("P");
   newtope.innerHTML= " Lista de producciones que contienen los NT de la list_vacio: "+lsprod_empty;
   document.getElementById("demo5").appendChild(newtope);
-
+/*
 //Imprime las combinaciones
-  for (var i=0;i<ls_combinaciones.length; i++) {
 
+for (var i=0;i<this.ls_combinaciones.length; i++) {
+
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Tabla de combinaciones "+ i + ": \n";
+  document.getElementById("demo5").appendChild(newtope);
+
+  for (var j=0;j<this.ls_combinaciones[i].length; j++) {
     var newtope = document.createElement("P");
-    newtope.innerHTML= "Tabla de combinaciones "+ i + ": \n";
+    newtope.innerHTML= this.ls_combinaciones[i][j]+ " \n";
     document.getElementById("demo5").appendChild(newtope);
-
-    for (var j=0;j<ls_combinaciones[i].length; j++) {
-      var newtope = document.createElement("P");
-      newtope.innerHTML= ls_combinaciones[i][j]+ " \n";
-      document.getElementById("demo5").appendChild(newtope);
-    }
   }
+}*/
+for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
+    var prod = ls_prod[i];
+    for (var j=0;j<this.ls_combinaciones.length; j++) {
+      found = prod.indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
+      if(found != -1){
+        prod.splice(found, 1, this.ls_combinaciones[j]);
+        this.ls_prod3.push(prod);
+      }
+      else{
+        this.ls_prod3.push(prod);
+      }
+    }
+}
+
+document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
+
+for(var i=0;i<this.ls_prod3.length;i++){
+  var newtope = document.createElement("P");
+  newtope.innerHTML= this.ls_nt2[i]+" := "+this.ls_prod3[i]+"\n";
+  document.getElementById("demo6").appendChild(newtope);
+}
+
 
 }
