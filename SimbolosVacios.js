@@ -26,8 +26,8 @@ function SimbolosVacios(ls_prod, ls_NT){
             if(list_vacio.indexOf(c)!= -1 && !lsprod_empty.includes(prod) && prod.length != 1){//Si el caracter C está en la lista de vacios y la produccion no está
                                                                           //en la lista de producciones a combinar
               lsprod_empty.push(prod);//Se agrega la produccion actual a la lista
-              var combinacion = GeneraCombinaciones(prod);
-              ls_combinaciones.push(combinacion);
+              var combinacion = GeneraCombinaciones(prod);//Generaos la combinación de la producción actual
+              ls_combinaciones.push(combinacion);//Almacenamos cada combinación
             }
           }
         }
@@ -41,7 +41,7 @@ function SimbolosVacios(ls_prod, ls_NT){
   newtope.innerHTML= " Lista de producciones que contienen los NT de la list_vacio: "+lsprod_empty;
   document.getElementById("demo5").appendChild(newtope);
 
-//Imprime la tabla de verdad que serán las combinaciones
+//Imprime las combinaciones
   for (var i=0;i<ls_combinaciones.length; i++) {
 
     var newtope = document.createElement("P");
