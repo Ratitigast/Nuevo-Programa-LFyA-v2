@@ -4,7 +4,7 @@ function SimbolosVacios(ls_prod, ls_NT){
   var lsprod_empty = new Array();//lista que contendrá aquellas producciones a las que se le harán combinaciones
   this.ls_combinaciones = new Array();
   this.ls_prod3 = new Array();//Lista que guardará las producciones finales
-
+  var pos=0;
   for(var i  = 0; i < ls_prod.length; i++){//Revisa aquellas producciones que contengan el símbolo de vacío
       if(ls_prod[i].indexOf('#') != -1){
         list_vacio.push(ls_NT[i]);//Se guardan los NT correspondientes a aquellas producciones que tenían el símbolo de vacío
@@ -56,23 +56,27 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
   }
 }*/
 for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
+    this.ls_prod3.push(ls_prod[i]);
     for (var j=0;j<this.ls_combinaciones.length; j++) {
-      var prod = ls_prod[i];
-      found = prod.indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
+      var last_elmnt=this.ls_prod3[this.ls_prod3.length - 1];
+      found = last_elmnt.indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
       if(found != -1){
-        prod.splice(found, 1, this.ls_combinaciones[j]);
-        this.ls_prod3.push(prod);
+        if(i==pos){
+          this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);
+          pos=0;
+        }
+        this.ls_prod3[this.ls_prod3.length - 1].splice(found, 1, this.ls_combinaciones[j]);
+        pos = i;
         i=0;
       }
     }
-    this.ls_prod3.push(ls_prod[i]);
 }
 
 document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
 
-for(var i=0;i<this.ls_prod3.length;i++){
+for(var i=0;i<ls_NT.length;i++){
   var newtope = document.createElement("P");
-  newtope.innerHTML= this.ls_nt2[i]+" := "+this.ls_prod3[i]+"\n";
+  newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";
   document.getElementById("demo6").appendChild(newtope);
 }
 
