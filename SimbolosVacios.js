@@ -34,7 +34,7 @@ function SimbolosVacios(ls_prod, ls_NT){
       }
     }
     //Imprimimos la lista de vacíos
-  var newtope = document.createElement("P");
+/*  var newtope = document.createElement("P");
   newtope.innerHTML= " Lista de NT que generan vacíos: "+list_vacio;
   document.getElementById("demo5").appendChild(newtope);
   var newtope = document.createElement("P");
@@ -56,17 +56,23 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
   }
 }*/
 for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
-    this.ls_prod3[i]=ls_prod[i];
-    for (var j=0;j<this.ls_combinaciones.length; j++) {
+    this.ls_prod3[i]=ls_prod[i];//Se guarda la producción actual
+    for (var j=0;j<this.ls_combinaciones.length; j++) { //Se comienzan a recorrer todas las combinaciones
       found = this.ls_prod3[i].indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
-      if(found != -1){
-        if(i==pos){
-          this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);
-          pos=0;
+      //this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]
+      //Esta parte del código retorna el último elemento de las combinaciones, el cual corresponde a la regla sin modificar
+      //La regla sin modificar debe de encontrarse dentro de la producción
+      //Found retorna el índice donde se encuentre la regla correspondiente
+      if(found != -1){//Si se encuentra la regla dentro de la producción
+        if(i==pos){//SEGUNDO
+          //Si el índice guardado corresponde con la producción actual, quiere decir que encontramos una combinación en una producción anteriormente revisada
+          this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);//Así que agregaremos la combinación a esta producción
+          pos=0;//Reiniciamos el identificador de la producción
         }
-        this.ls_prod3[this.ls_prod3.length - 1].splice(found, 1, this.ls_combinaciones[j]);
-        pos = i;
-        i=0;
+        this.ls_prod3[this.ls_prod3.length - 1].splice(found, 1, this.ls_combinaciones[j]);//PRIMERO!!!
+        //Se sustituye la combinación en el lugar de la regla encontrada
+        pos = i; //Guardamos el índice de la producción donde se realizó la sustitución
+        i=0;//Reiniciamos el recorrido de las producciones en caso de que se encuentren más combinaciones dentro de la misma producción!
       }
     }
 }
