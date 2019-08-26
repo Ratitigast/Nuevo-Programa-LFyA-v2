@@ -18,10 +18,12 @@ function GeneraCombinaciones(prod){
         var c = prod.charAt(k);
             cUpCase = c.toUpperCase();
         if(c == cUpCase && combinaciones[i][j]==0){//Si detectamos un NT y la tabla indica un 0
-            prod = prod.replace(c,'#');//Sustituimos el NT por el símbolo de vacío
+            //prod = prod.replace(c,'#');//Sustituimos el NT por el símbolo de vacío
+            prod = prod.replaceAt(k, "#")
             j++;//Avanzamos a la siguiente combinacion dentro del arreglo i
           }
         else if(c == cUpCase && combinaciones[i][j]==1){//Si detectamos un NT y la tabla indica un 1
+            prod = prod.replaceAt(k, c)
             j++;//No afectamos a la regla y solo avanzamos a la siguiente combinacion dentro del arreglo i
           }
         }
@@ -31,4 +33,8 @@ function GeneraCombinaciones(prod){
     }
 
   return prod_combinada;
+}
+
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }

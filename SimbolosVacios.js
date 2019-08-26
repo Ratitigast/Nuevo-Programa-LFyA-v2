@@ -56,10 +56,9 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
   }
 }*/
 for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
-    this.ls_prod3.push(ls_prod[i]);
+    this.ls_prod3[i]=ls_prod[i];
     for (var j=0;j<this.ls_combinaciones.length; j++) {
-      var last_elmnt=this.ls_prod3[this.ls_prod3.length - 1];
-      found = last_elmnt.indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
+      found = this.ls_prod3[i].indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
       if(found != -1){
         if(i==pos){
           this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);
