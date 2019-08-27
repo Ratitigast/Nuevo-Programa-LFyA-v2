@@ -55,35 +55,48 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
     document.getElementById("demo5").appendChild(newtope);
   }
 }*/
-for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
-    this.ls_prod3[i]=ls_prod[i];//Se guarda la producción actual
-    for (var j=0;j<this.ls_combinaciones.length; j++) { //Se comienzan a recorrer todas las combinaciones
-      found = this.ls_prod3[i].indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
-      //this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]
-      //Esta parte del código retorna el último elemento de las combinaciones, el cual corresponde a la regla sin modificar
-      //La regla sin modificar debe de encontrarse dentro de la producción
-      //Found retorna el índice donde se encuentre la regla correspondiente
-      if(found != -1){//Si se encuentra la regla dentro de la producción
-        if(i==pos){//SEGUNDO
-          //Si el índice guardado corresponde con la producción actual, quiere decir que encontramos una combinación en una producción anteriormente revisada
-          this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);//Así que agregaremos la combinación a esta producción
-          pos=0;//Reiniciamos el identificador de la producción
+  for(var i=0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
+      this.ls_prod3[i]=ls_prod[i];//Se guarda la producción actual
+      for (var j=0;j<this.ls_combinaciones.length; j++) { //Se comienzan a recorrer todas las combinaciones
+        found = this.ls_prod3[i].indexOf(this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]);
+        //this.ls_combinaciones[j][this.ls_combinaciones[j].length-1]
+        //Esta parte del código retorna el último elemento de las combinaciones, el cual corresponde a la regla sin modificar
+        //La regla sin modificar debe de encontrarse dentro de la producción
+        //Found retorna el índice donde se encuentre la regla correspondiente
+        if(found != -1){//Si se encuentra la regla dentro de la producción
+          if(i==pos){//SEGUNDO
+            //Si el índice guardado corresponde con la producción actual, quiere decir que encontramos una combinación en una producción anteriormente revisada
+            this.ls_prod3[pos].splice(found, 1, this.ls_combinaciones[j]);//Así que agregaremos la combinación a esta producción
+            pos=0;//Reiniciamos el identificador de la producción
+          }
+          this.ls_prod3[this.ls_prod3.length - 1].splice(found, 1, this.ls_combinaciones[j]);//PRIMERO!!!
+          //Se sustituye la combinación en el lugar de la regla encontrada
+          pos = i; //Guardamos el índice de la producción donde se realizó la sustitución
+          i=0;//Reiniciamos el recorrido de las producciones en caso de que se encuentren más combinaciones dentro de la misma producción!
         }
-        this.ls_prod3[this.ls_prod3.length - 1].splice(found, 1, this.ls_combinaciones[j]);//PRIMERO!!!
-        //Se sustituye la combinación en el lugar de la regla encontrada
-        pos = i; //Guardamos el índice de la producción donde se realizó la sustitución
-        i=0;//Reiniciamos el recorrido de las producciones en caso de que se encuentren más combinaciones dentro de la misma producción!
       }
+  }
+
+  for(var i=0;i<this.ls_prod3.length;i++){
+    for(var j=0;j<this.ls_prod3[i].length;j++){
+      var rule=this.ls_prod3[i][j];
+      rule=rule.toString();
+      this.ls_prod3[i][j] = rule.replace(/#/g,'')
     }
-}
+    this.ls_prod3[i]=this.ls_prod3[i].filter(Boolean);
+  }
 
 document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
 
-for(var i=0;i<ls_NT.length;i++){
-  var newtope = document.createElement("P");
-  newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";
-  document.getElementById("demo6").appendChild(newtope);
+  for(var i=0;i<ls_NT.length;i++){
+    var newtope = document.createElement("P");
+    newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";
+    document.getElementById("demo6").appendChild(newtope);
+  }
+
+
 }
 
-
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
