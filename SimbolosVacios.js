@@ -83,10 +83,13 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
       rule=rule.toString();
       this.ls_prod3[i][j] = rule.replace(/#/g,'')
     }
+    this.ls_prod3[i]=this.ls_prod3[i].join();
+    this.ls_prod3[i]=this.ls_prod3[i].split(",");
     this.ls_prod3[i]=this.ls_prod3[i].filter(Boolean);
+    this.ls_prod3[i]=this.ls_prod3[i].filter(onlyUnique);
   }
 
-document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
+  document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
 
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
@@ -94,9 +97,13 @@ document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
     document.getElementById("demo6").appendChild(newtope);
   }
 
-
+SimbolosUnitarios(this.ls_prod3,ls_NT);
 }
 
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
 }
