@@ -97,7 +97,7 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
     document.getElementById("demo6").appendChild(newtope);
   }
 
-SimbolosUnitarios(this.ls_prod3,ls_NT);
+SimbolosUnitarios(ls_NT);
 }
 
 String.prototype.replaceAt=function(index, replacement) {
