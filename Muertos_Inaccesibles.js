@@ -1,12 +1,13 @@
 //var lista_2; //Lista de producciones del segundo algortimo
 
-function revisaNT(){
+function Muertos_Inaccesibles(flag){
   var act = false;
 //Esta functión revisará las producciones de los NT generadores, buscando si alguna
 //de las reglas de la produccion CONTIENE ÚNICAMENTE TERMINALES.
   this.ls_nt1=new Array(); //Lista NT1 en la que se guardarán los NT que cumplan con tener una regla de únicamente Terminales
   this.ls_prod1=new Array(); //Lista P1 en la que se guardarán los símbolos Terminales que se identificaron
                             //por cada NT1
+
   var aux=0;
   var ls_aux=new Array();//Guardará las reglas conformadas únicamente por terminales
   var term = new Array();
@@ -93,17 +94,20 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
   var newtope = document.createElement("P");
   newtope.innerHTML="Lista P1 "+newArr;
   document.getElementById("demo4").appendChild(newtope);*/
-  document.getElementById("demo3").innerHTML = "Resultado Símbolos muertos:\n ";
+  if(flag!=1){var print = "demo3";}
+  else{var print = "demo8";}
+  document.getElementById(print).innerHTML = "Resultado Símbolos muertos:\n ";
   for(var i=0;i<lista.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_nt[i]+" := "+lista[i]+"\n";
-    document.getElementById("demo3").appendChild(newtope);
+    document.getElementById(print).appendChild(newtope);
   }
-  lista = SimbolosInaccesibles(lista, ls_nt.slice());
+
+  lista = SimbolosInaccesibles(lista, ls_nt.slice(),flag);
 
 }
 
-function SimbolosInaccesibles(ls_prod, ls_NT){ //Recibe la lista de producciones generadas del algortimo de Eliminacion de Muertos y la lista de NT
+function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producciones generadas del algortimo de Eliminacion de Muertos y la lista de NT
   var lista_2 = new Array();
   var queue = new Array(); // Cola para almacenar los NT que deben ser visitados (se maneja por indices)
   this.ls_nt2 = new Array();
@@ -134,122 +138,18 @@ function SimbolosInaccesibles(ls_prod, ls_NT){ //Recibe la lista de producciones
   console.log("alg 2");
   console.log(lista_2);
 
-  document.getElementById("demo4").innerHTML = "Resultado Símbolos inaccesibles:\n ";
+  if(flag!=1){var print = "demo4";}
+  else{var print = "demo9";}
+
+  document.getElementById(print).innerHTML = "Resultado Símbolos inaccesibles:\n ";
 
   for(var i=0;i<lista_2.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= this.ls_nt2[i]+" := "+lista_2[i]+"\n";
-    document.getElementById("demo4").appendChild(newtope);
+    document.getElementById(print).appendChild(newtope);
   }
-
-  SimbolosVacios(lista_2, this.ls_nt2);
+  if(flag!=1){SimbolosVacios(lista_2, this.ls_nt2);}
 
   return lista_2;
 
 }
-/*
-function SimbolosVacios(ls_prod, ls_NT){
-  var list = new Array();
-  var queue = new Array();
-  for(var i  = 0; i < ls_prod.length; i++){
-      if(ls_prod[i].indexOf('#') != -1){
-        list.push(ls_NT[i]);
-    }
-  }
-  console.log(list);
-  for(var i  = 0; i < ls_prod.length; i++){
-    queue = new Array();
-    for (var j = 0; j < ls_prod[i].length; j++){
-      var prod = ls_prod[i][j].toString();
-      if(prod != prod.toLowerCase()){
-        for (var k = 0; k < prod.length; k++){
-          var c = prod.charAt(k);
-          if(c == c.toUpperCase() && list.indexOf(c)!= -1 && !queue.includes(prod)){
-            queue.push(prod);
-          }
-        }
-      }
-    }
-    var pos;
-    for(var k = 0; k < queue.length; k++){
-      pos = new Array();
-      console.log(queue[k]);
-      for(var l = 0; l < queue[k].length; l++){
-        var c = queue[k].charAt(l);
-        if(c == c.toUpperCase() && list.includes(c)){
-          pos.push(l);
-        }
-      }
-      var prod = queue[k];
-      var col = 1, ren, nprod;
-      while (col < Math.pow(2,pos.length)){
-        ren = 0;
-        nprod = "";
-        var tb = tablaVerdad(pos.length);
-        for(var l = 0; l < prod.length; l++){
-          var c = prod.charAt(l);
-          if(c == c.toUpperCase() && list.includes(c)){
-            if(tb[ren][col] == 1){
-              nprod += c;
-              ren++;
-            }
-          }
-          else
-            nprod += c;
-        }
-        col++;
-        if(nprod != "" && !ls_prod[i].includes(nprod))
-          ls_prod[i].push(nprod);
-      }
-      console.log(ls_prod);
-    }
-    console.log(queue);
-  }
-}
-
-function tablaVerdad(n){
-  tb = new Array();
-  for (var j = 0; j < n; j ++){
-    tb.push(new Array());
-    var m = 0;
-    while(m < Math.pow(2,n)){
-      var k = 0;
-      while(k < Math.pow(2, n - (j + 1))){
-        tb[j].push(1);
-        k++;
-        m++;
-      }
-      k = 0;
-      while(k < Math.pow(2, n - (j + 1))){
-        tb[j].push(0);
-        k++;
-        m++;
-      }
-    }
-  }
-  return tb;
-  console.log(tb);
-}
-
-/*    var pos;
-    for(var k = 0; i < queue.length; k++){
-      pos = new Array();
-      for(var l = 0; l < queue[k].length; l++){
-        var c = queue[k].charAt(l);
-        if(c == c.toUpperCase() && list.includes(c)){
-          pos.push(l);
-        }
-      }
-      console.log(pos);
-      var tb = tablaVerdad(pos.length);
-      for(var k = 1; k < Math.pow(2, pos.length); k++){
-        var nprod = prod.slice();
-        for(var l = 0; l < pos.length; l++){
-          if(tb[l][k] == 0)
-            nprod.pop(pos[k]);
-          console.log(nprod);
-        }
-      }
-      }
-    }
-    */
