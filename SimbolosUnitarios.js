@@ -14,15 +14,25 @@ function SimbolosUnitarios(ls_NT){
     for(var j = 0; j < this.ls_nt_u.length; j++){
       found = this.prod_u[i].indexOf(this.ls_nt_u[j]);
       if(found != -1){
-        this.prod_u.push(this.prod_u[j]);
+        temp_arr = this.prod_u[i];
+        temp_arr.push(this.prod_u[j]);
+        this.prod_u[i] = temp_arr;
+        this.prod_u[i] = getTogueter(this.prod_u[i]);
+
         sec_found = this.prod_u[j].indexOf(this.ls_nt_u[i]);
         if(sec_found != -1){
           temp = this.prod_u[j];
           temp.push(this.prod_u[i]);
-          this.prod_u[i] = temp;
+          this.prod_u[j] = temp;
+          this.prod_u[j] = getTogueter(this.prod_u[j]);
         }
+
       }
     }
+  }
+  for(var i = 0; i < this.ls_nt_u.length; i++){
+    found_same = this.prod_u[i].indexOf(this.ls_nt_u[i]);
+    if(found_same!=-1){this.prod_u[i].splice(found_same,1);}
   }
 
 
@@ -51,4 +61,13 @@ function index_u(ls_prod3,ls_NT){
 
 
   return [this.ls_index_u,ls_nt_u,prod_u];
+}
+
+function getTogueter(array){
+  array=array.join();
+  array=array.split(",");
+  array=array.filter(Boolean);
+  array=array.filter(onlyUnique);
+
+  return array;
 }
