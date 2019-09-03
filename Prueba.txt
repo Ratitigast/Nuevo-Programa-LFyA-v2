@@ -2,3 +2,10 @@ A ? xN|bb|A|#
 N ? aZ|N|aaF|Fa|F
 F ? ab7|op9|N|Nr|AEA
 E ? a|b|op|E|#
+
+Otra prueba
+
+X → Xwy|7z|ab|34|Y
+W → Z|341|λ|mb|!!|X
+Z → w|5nxm|Rab|30
+Y → λ|Z|?|W|2!!|xw
