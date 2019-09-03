@@ -19,7 +19,7 @@ function SimbolosVacios(ls_prod, ls_NT){
           for (var k = 0; k < prod.length; k++){//Analizamos cada elemento de esa regla
             var c = prod.charAt(k);//Se toma el caracter actual de la regla
                 c = c.toUpperCase();//Pasamos el elemento a mayúsculas
-            if(list_vacio.indexOf(c) != -1 && list_vacio.indexOf(nt) == -1){//Si el caracter C y el símbolo NT no están en la lista de vacíos
+            if(list_vacio.indexOf(c) != -1 && list_vacio.indexOf(nt) == -1 && prod.length == 1){//Si el caracter C y el símbolo NT no están en la lista de vacíos
               list_vacio.push(nt);//  Agregamos el símbolo NT a la lista de vacíos, por generar una regla que produce vacíos
               i=0;j=0;//Al haber agregado un NT a la lista, tenemos que regresar a revisar otravez las producciones
             }
