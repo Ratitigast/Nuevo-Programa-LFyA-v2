@@ -14,3 +14,20 @@ A → xN|bb|#|F
 N → za|aa|E|SA
 F → ab7|op9|Qr|A
 E → Ea|EE|zb!
+
+A → ab|#|be|h
+B → #|ea|gD|Ma
+E → E|sm
+D → #|Da|be|H
+H → bg|h|#|Ba
+
+S → aAb|cEB|CE
+A → dBE|eeC
+B → ff|D
+C → gfB|ae
+D → h
+
+G → A|Baa|a|λ|Z
+Z → Gh|Abb|Cz|e|A
+A → Zg|eb|Z|72|λ
+H → Bcc|ccd|ez|Fh
