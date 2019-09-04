@@ -51,6 +51,7 @@ function Muertos_Inaccesibles(flag){
     for(var i = 0; i < ls_prod.length; i++ ){ // Para cada No terminal que tiene producciones
       for(var j = 0; j < ls_prod[i].length; j++){ // Para cada produccion
         var prod = this.ls_prod[i][j].toString(); // Produccion
+        var tam = prod.length;
         if(prod != ""){ // Reduce la complejidad de busqueda
           if (prod == prod.toLowerCase()){ // Validamos si es una produccion solo de terminales
             lista[i].push(prod); // agregamos a la lista del primer algortimo en la posicion correspondiente la produccion
@@ -61,7 +62,26 @@ function Muertos_Inaccesibles(flag){
             }
           }
           else{ // Si la produccion contiene tanto NT como T
-            for(var k = 0; k < nt_n.length; k++){ //Para cada elemento en la lista de No Terminales con producciones que generan solo terminales
+            var cuentain=0,cuentaup=0;
+            for(var k = 0; k <prod.length; k++ ){
+              var c = prod.charAt(k);//Se toma el caracter actual de la regla
+                  d = c.toUpperCase();//Pasamos el elemento a mayúsculas
+              if(this.ls_nt.includes(c)){
+                cuentain++;
+              }
+              if(c==d){
+                cuentaup++;
+              }
+            }
+            if(cuentain == cuentaup && !lista[i].includes(prod)){
+              lista[i].push(prod);
+              ls_prod[i][j]= "";
+              if(!nt_n.includes(ls_nt[i])){
+                nt_n.push(ls_nt[i]);
+                act = true;
+              }
+            }
+            /*for(var k = 0; k < nt_n.length; k++){ //Para cada elemento en la lista de No Terminales con producciones que generan solo terminales
               if(prod.includes(nt_n[k]) && !lista[i].includes(prod)){ // Si prod incluye algun simbolo de nt_n (podemos llegar a algun terminal) agregamos la produccion a la lista en la posicion correspondiente
                 lista[i].push(prod);
                 ls_prod[i][j]= "";
@@ -70,7 +90,7 @@ function Muertos_Inaccesibles(flag){
                   act = true;
                 }
               }
-            }
+            }*/
           }
         }
       }

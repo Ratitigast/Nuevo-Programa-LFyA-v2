@@ -1,5 +1,5 @@
 function SimbolosVacios(ls_prod, ls_NT){
-
+var act = false;
   var list_vacio = new Array();//Lista que contendrá los NT que generen vacíos
   var lsprod_empty = new Array();//lista que contendrá aquellas producciones a las que se le harán combinaciones
   this.ls_combinaciones = new Array();
@@ -10,7 +10,8 @@ function SimbolosVacios(ls_prod, ls_NT){
         list_vacio.push(ls_NT[i]);//Se guardan los NT correspondientes a aquellas producciones que tenían el símbolo de vacío
     }
   }
-
+do{
+  act = false;
     for(var i  = 0; i < ls_prod.length; i++){//Se revisan cada regla de cada producción
       for (var j = 0; j < ls_prod[i].length; j++){
         var prod = ls_prod[i][j].toString();//Se toma la regla a analizar
@@ -18,24 +19,33 @@ function SimbolosVacios(ls_prod, ls_NT){
         if(prod != prod.toLowerCase()){//Si la producción no contiene Terminales, quiere decir que solo contiene NT potenciales a crear vacíos
           for (var k = 0; k < prod.length; k++){//Analizamos cada elemento de esa regla
             var c = prod.charAt(k);//Se toma el caracter actual de la regla
-                c = c.toUpperCase();//Pasamos el elemento a mayúsculas
-            if(list_vacio.indexOf(c) != -1 && list_vacio.indexOf(nt) == -1 && prod.length == 1){//Si el caracter C y el símbolo NT no están en la lista de vacíos
-              list_vacio.push(nt);//  Agregamos el símbolo NT a la lista de vacíos, por generar una regla que produce vacíos
-              i=0;j=0;//Al haber agregado un NT a la lista, tenemos que regresar a revisar otravez las producciones
-            }
-            if(list_vacio.indexOf(c)!= -1 && !lsprod_empty.includes(prod) && prod.length != 1){//Si el caracter C está en la lista de vacios y la produccion no está
-                                                                          //en la lista de producciones a combinar
-              lsprod_empty.push(prod);//Se agrega la produccion actual a la lista
-              var combinacion = GeneraCombinaciones(prod);//Generaos la combinación de la producción actual
-              this.ls_combinaciones.push(combinacion);//Almacenamos cada combinación
-            }
+                d = c.toUpperCase();//Pasamos el elemento a mayúsculas
+                if(c==d){
+                  if(ls_NT.includes(d) && list_vacio.indexOf(d) != -1 && list_vacio.indexOf(nt) == -1 && prod.length == 1){//Si el caracter C y el símbolo NT no están en la lista de vacíos
+                    list_vacio.push(nt);//  Agregamos el símbolo NT a la lista de vacíos, por generar una regla que produce vacíos
+                    //Al haber agregado un NT a la lista, tenemos que regresar a revisar otravez las producciones
+                    act=true;
+                  }
+                  if(ls_NT.includes(d) && list_vacio.indexOf(d)!= -1 && !lsprod_empty.includes(prod) && prod.length > 1){//Si el caracter C está en la lista de vacios y la produccion no está
+                    if(!list_vacio.includes(nt)){
+                      list_vacio.push(nt);act=true;}                                                      //en la lista de producciones a combinar
+                        console.log(d);
+                        console.log(list_vacio);
+                        lsprod_empty.push(prod);//Se agrega la produccion actual a la lista
+                        var combinacion = GeneraCombinaciones(prod);//Generaos la combinación de la producción actual
+                        this.ls_combinaciones.push(combinacion);//Almacenamos cada combinación
+
+                  }
+                }
           }
         }
       }
-    }
+
+  }
+}while(act);
     //Imprimimos la lista de vacíos
-/*  var newtope = document.createElement("P");
-  newtope.innerHTML= " Lista de NT que generan vacíos: "+list_vacio;
+  /*var newtope = document.createElement("P");
+  newtope.innerHTML= " Lista de NT que generan vacíos: "+list_vacio + "\n Lista de NT: " + ls_NT;
   document.getElementById("demo5").appendChild(newtope);
   var newtope = document.createElement("P");
   newtope.innerHTML= " Lista de producciones que contienen los NT de la list_vacio: "+lsprod_empty;

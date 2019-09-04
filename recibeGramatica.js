@@ -25,8 +25,9 @@ function recibeGramatica(flag){
   //Eliminamos los elementos vacíos,0,undefined,...
   this.ls_nt=this.ls_nt.filter(Boolean);
   this.ls_prod=this.ls_prod.filter(Boolean);
-  if(flag == 1){this.ls_nt=this.ls_NT_f;this.ls_prod = this.ls_prod4;}
+
   //Mostramos los elemenos de los arreglos
   document.getElementById("demo").innerHTML = "Lista de NT: "+ this.ls_nt;
   document.getElementById("demo2").innerHTML = "Lista de producciones: "+ this.ls_prod;
+    if(flag == 1){this.ls_nt=this.ls_NT_f;this.ls_prod = this.ls_prod4;}
 }

@@ -10,7 +10,7 @@ W → Z|341|#|mb|!!|X
 Z → w|5nxm|Rab|30
 Y → #|Z|?|W|2!!|xw
 
-A → xN|bb|λ|F
+A → xN|bb|#|F
 N → za|aa|E|SA
 F → ab7|op9|Qr|A
 E → Ea|EE|zb!
