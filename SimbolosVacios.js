@@ -1,5 +1,6 @@
 function SimbolosVacios(ls_prod, ls_NT){
 var act = false;
+var firs_flag = false;
   var list_vacio = new Array();//Lista que contendrá los NT que generen vacíos
   var lsprod_empty = new Array();//lista que contendrá aquellas producciones a las que se le harán combinaciones
   this.ls_combinaciones = new Array();
@@ -9,6 +10,9 @@ var act = false;
       if(ls_prod[i].indexOf('#') != -1){
         list_vacio.push(ls_NT[i]);//Se guardan los NT correspondientes a aquellas producciones que tenían el símbolo de vacío
     }
+    if(ls_prod[0].indexOf('#') != -1){
+      firs_flag = true;
+  }
   }
 do{
   act = false;
@@ -100,7 +104,12 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
   }
 
   document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
-
+  if (firs_flag==true){
+    value = ls_NT[0].toString();
+    ls_NT.unshift(value+"'");
+    prima_prod = [value,'#'];
+    this.ls_prod3.unshift(prima_prod);
+  }
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";

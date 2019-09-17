@@ -27,7 +27,7 @@ B → ff|D
 C → gfB|ae
 D → h
 
-G → A|Baa|a|λ|Z
+G → A|Baa|a|#|Z
 Z → Gh|Abb|Cz|e|A
-A → Zg|eb|Z|72|λ
+A → Zg|eb|Z|72|#
 H → Bcc|ccd|ez|Fh
