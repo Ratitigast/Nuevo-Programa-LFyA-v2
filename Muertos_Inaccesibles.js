@@ -125,6 +125,10 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
 
   lista = SimbolosInaccesibles(lista, ls_nt.slice(),flag);
 
+  lT=DetectaT(lista);
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Lista de Terminales: \n"+lT;
+  document.getElementById(print).appendChild(newtope);
 }
 
 function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producciones generadas del algortimo de Eliminacion de Muertos y la lista de NT
@@ -169,7 +173,10 @@ function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producc
     document.getElementById(print).appendChild(newtope);
   }
   if(flag!=1){SimbolosVacios(lista_2, this.ls_nt2);}
-
+  lT=DetectaT(lista_2);
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Lista de Terminales: \n"+lT;
+  document.getElementById(print).appendChild(newtope);
   return lista_2;
 
 }
