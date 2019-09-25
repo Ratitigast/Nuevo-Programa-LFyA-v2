@@ -72,7 +72,7 @@ function SimbolosUnitarios(ls_NT){
 
   var print = "demo7";
   document.getElementById(print).innerHTML = "Símbolos Unitarios:\n ";
-  lT=DetectaT(this.ls_prod4,print);
+  lT=ListaElementos(ls_NT,this.ls_prod4,print);
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod4[i]+"\n";

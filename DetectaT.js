@@ -1,4 +1,4 @@
-function DetectaT(str, print) {
+function ListaElementos(nt_list,str, print) {
 
   var arr_res = new Array();
   var aux=0;
@@ -18,10 +18,12 @@ function DetectaT(str, print) {
   }
 
   full_res = arr_toStrn(arr_res);
+  var ntprint= arr_toStrn(nt_list);
 
   var newtope = document.createElement("P");
-  newtope.innerHTML= "Lista de Terminales: \n"+full_res;
+  newtope.innerHTML= "Lista de Terminales: \n"+full_res+"Lista de No Terminales: \n"+ ntprint+"Símbolo Inicial: \n"+nt_list[0];
   document.getElementById(print).appendChild(newtope);
+
 
   return full_res;
 }

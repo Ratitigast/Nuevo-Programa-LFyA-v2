@@ -110,7 +110,7 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
     prima_prod = [value,'#'];
     this.ls_prod3.unshift(prima_prod);
   }
-  lT=DetectaT(this.ls_prod3,print);
+  lT=ListaElementos(ls_NT,this.ls_prod3,print);
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";
