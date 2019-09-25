@@ -21,9 +21,16 @@ function ListaElementos(nt_list,str, print) {
   var ntprint= arr_toStrn(nt_list);
 
   var newtope = document.createElement("P");
-  newtope.innerHTML= "Lista de Terminales: \n"+full_res+"Lista de No Terminales: \n"+ ntprint+"Símbolo Inicial: \n"+nt_list[0];
+  newtope.innerHTML= "Lista de Terminales: \n"+full_res;
   document.getElementById(print).appendChild(newtope);
 
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Lista de No Terminales: \n"+ ntprint;
+  document.getElementById(print).appendChild(newtope);
+
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Símbolo Inicial: \n"+nt_list[0];
+  document.getElementById(print).appendChild(newtope);
 
   return full_res;
 }
