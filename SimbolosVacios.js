@@ -102,18 +102,19 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
     this.ls_prod3[i]=this.ls_prod3[i].filter(Boolean);
     this.ls_prod3[i]=this.ls_prod3[i].filter(onlyUnique);
   }
-
-  document.getElementById("demo6").innerHTML = "Símbolos vacíos:\n ";
+  var print = "demo6";
+  document.getElementById(print).innerHTML = "Símbolos vacíos:\n ";
   if (firs_flag==true){
     value = ls_NT[0].toString();
     ls_NT.unshift(value+"'");
     prima_prod = [value,'#'];
     this.ls_prod3.unshift(prima_prod);
   }
+  lT=DetectaT(this.ls_prod3,print);
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod3[i]+"\n";
-    document.getElementById("demo6").appendChild(newtope);
+    document.getElementById(print).appendChild(newtope);
   }
 
 SimbolosUnitarios(ls_NT);

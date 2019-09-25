@@ -1,11 +1,12 @@
-function DetectaT(str) {
+function DetectaT(str, print) {
+
   var arr_res = new Array();
   var aux=0;
-  var format =/\p{S}/u; ///[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-  str_lc=arr_toStrn(str);
-  str_spcial=str_lc;
+  var format =/[^a-zA-Z0–9_]/i; ///[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+  this.str_lc=arr_toStrn(str);
+
   for(var i=0;i<=str_lc.length;i++){
-    c = str_lc.charAt(i);
+    c = this.str_lc.charAt(i);
     if(c==c.toLowerCase()){
       arr_res[aux]=c;
       aux++;
@@ -15,15 +16,12 @@ function DetectaT(str) {
       aux++;
     }
   }
-  /*res=str_lc.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/gi);
-  //res=res.split("");
-  arr_res[0]=res.filter(onlyUnique);
-  /*
-  res_special=str_spcial.replace(/[!@#$%^&*()_+{};':"|,.<>?]/g,'');
-  res_special=res_special.split("");
-  arr_res[1]=res_special.filter(onlyUnique);*/
 
   full_res = arr_toStrn(arr_res);
+
+  var newtope = document.createElement("P");
+  newtope.innerHTML= "Lista de Terminales: \n"+full_res;
+  document.getElementById(print).appendChild(newtope);
 
   return full_res;
 }

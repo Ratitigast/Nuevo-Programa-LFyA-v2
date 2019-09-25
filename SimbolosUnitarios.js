@@ -70,18 +70,18 @@ function SimbolosUnitarios(ls_NT){
 
   }
 
-
-  document.getElementById("demo7").innerHTML = "Símbolos Unitarios:\n ";
-
+  var print = "demo7";
+  document.getElementById(print).innerHTML = "Símbolos Unitarios:\n ";
+  lT=DetectaT(this.ls_prod4,print);
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_NT[i]+" := "+this.ls_prod4[i]+"\n";
-    document.getElementById("demo7").appendChild(newtope);
+    document.getElementById(print).appendChild(newtope);
   }
 
   var newtope = document.createElement("P");
   newtope.innerHTML= "Repetimos Símbolos Muertos e inaccesibles: \n";
-  document.getElementById("demo7").appendChild(newtope);
+  document.getElementById(print).appendChild(newtope);
   var flag=1;
   recibeGramatica(flag);
   Muertos_Inaccesibles(flag);

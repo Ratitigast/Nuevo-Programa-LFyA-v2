@@ -117,6 +117,9 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
   if(flag!=1){var print = "demo3";}
   else{var print = "demo8";}
   document.getElementById(print).innerHTML = "Resultado Símbolos muertos:\n ";
+
+  lT=DetectaT(lista,print);
+
   for(var i=0;i<lista.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= ls_nt[i]+" := "+lista[i]+"\n";
@@ -125,10 +128,6 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
 
   lista = SimbolosInaccesibles(lista, ls_nt.slice(),flag);
 
-  lT=DetectaT(lista);
-  var newtope = document.createElement("P");
-  newtope.innerHTML= "Lista de Terminales: \n"+lT;
-  document.getElementById(print).appendChild(newtope);
 }
 
 function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producciones generadas del algortimo de Eliminacion de Muertos y la lista de NT
@@ -166,17 +165,17 @@ function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producc
   else{var print = "demo9";}
 
   document.getElementById(print).innerHTML = "Resultado Símbolos inaccesibles:\n ";
-
+  lT=DetectaT(lista_2,print);
   for(var i=0;i<lista_2.length;i++){
     var newtope = document.createElement("P");
     newtope.innerHTML= this.ls_nt2[i]+" := "+lista_2[i]+"\n";
     document.getElementById(print).appendChild(newtope);
   }
+
   if(flag!=1){SimbolosVacios(lista_2, this.ls_nt2);}
-  lT=DetectaT(lista_2);
-  var newtope = document.createElement("P");
-  newtope.innerHTML= "Lista de Terminales: \n"+lT;
-  document.getElementById(print).appendChild(newtope);
+
+
+
   return lista_2;
 
 }
