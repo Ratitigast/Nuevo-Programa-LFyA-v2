@@ -1,16 +1,20 @@
 function SimbolosVacios(ls_prod, ls_NT){
 var act = false;
 var firs_flag = false;
+var firs_cont = false;
   var list_vacio = new Array();//Lista que contendrá los NT que generen vacíos
   var lsprod_empty = new Array();//lista que contendrá aquellas producciones a las que se le harán combinaciones
   this.ls_combinaciones = new Array();
   this.ls_prod3 = new Array();//Lista que guardará las producciones finales
   var pos=0;
   for(var i  = 0; i < ls_prod.length; i++){//Revisa aquellas producciones que contengan el símbolo de vacío
-      if(ls_prod[i].indexOf('#') != -1){
+    if(ls_prod[i].indexOf('#') != -1){
         list_vacio.push(ls_NT[i]);//Se guardan los NT correspondientes a aquellas producciones que tenían el símbolo de vacío
     }
-    if(ls_prod[0].indexOf('#') != -1){
+    if(ls_prod[i].indexOf(ls_NT[0]) != -1){
+      firs_cont = true;
+    }
+    if(ls_prod[0].indexOf('#') != -1 && firs_cont == true){
       firs_flag = true;
   }
   }
