@@ -22,22 +22,14 @@
       </footer>
   <div class="tab container">
     <div class="row">
-      	<!--<div class="col-4"> -->
-          <div class="row-eq-height">
-			<div class="col-lg-6 col-10 ml-1">
+      	<div class="col-4 col-lg-4">
 			  <h4><button class="tablinks" onclick="openTab(event, 'Inicio')" id="defaultOpen">Inicio</button></h4>
-			</div>
-          </div>
-        <!--</div>-->
-        <div class="col-4">
-          <div class="row-eq-height">
-			<div class="col-lg-6 col-10 ml-1 col-xl-7">
-			  <h4> <button class="tablinks" onclick="openTab(event, 'ingresaG')">Ingresa Gramática</button></h4></div>
-          </div>
+        </div>
+        <div class="col-4 col-lg-4">
+			  <h4> <button class="tablinks" onclick="openTab(event, 'ingresaG')">Ingresa Gramática</button></h4>
       	</div>
-      	<div class="col-4">
-          <div class="row-eq-height">
-			  <h4 class="col-xl-5"><button class="tablinks" onclick="openTab(event, 'Resultados')">Resultados</button></h4></div>
+      	<div class="col-4 col-lg-4">
+			  <h4 class="col-xl-5"><button class="tablinks" onclick="openTab(event, 'Resultados')">Resultados</button></h4>
       	</div>
   </div>
 </div>
@@ -75,16 +67,14 @@
 			</div>
 		</div>
 	</div>
-	<div id="ingresaG" class="tabcontent col-xl-12">
+	<div id="ingresaG" class="container tabcontent col-xl-12">
+		<div class="container row">
 			<div class="col-4">
-				<div class="row">
 			  <p>Recuerda: </p>
 			  <p>El símbolo de vacío debe representarse con '#' </p>
 			  <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y se activará la pestaña de resultados. </p>
-			</div></div>
-			  <div class="col-4">
-				  
-				  <div class="row">
+			</div>
+			  <div class="tab content col-4 col-lg-8" style="overflow-x:auto;">
 				  <table id="myTable">
 					  <tr>
 						<th>Ingresa tu gramática</th>
@@ -99,6 +89,80 @@
 						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();">Iniciar</button></td>
 					  </tr>
 				</table></div></div>
+	</div>
+	<div id="Resultados" class="tabcontent col-xl-12">
+		<div class="tab container mt-3">
+			<div class="row">
+				<div class="col-4 col-lg-12">
+					<hr>
+					<h4 class="text-center">Resultados</h4>
+					<hr>
+				</div>
+		   </div>
+			<div class="row">
+        		<div class="col-12">
+          		<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+					  <div class="carousel-item active">
+							<div class="row">
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Muertos</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12">
+									<p id="demo3">Prueba</p>
+									</div></div></div>
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Inaccesibles</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12 col-lg-12">
+									<p id="demo4">Prueba</p>
+									</div></div></div>
+							</div>
+					  </div>
+					  <div class="carousel-item">
+							<div class="row">
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Vacíos</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12 col-lg-12">
+									<p id="demo6">Prueba</p>
+									</div></div></div>
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Unitarios</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12 col-lg-12">
+									<p id="demo7">Prueba</p>
+									</div></div></div>
+							</div>
+					  </div>
+					  <div class="carousel-item">
+						  <div class="row"><div class="col-sm-6 col-xl-12 col-lg-12"><h5 class="text-center"> Repetimos Símbolos muertos e inaccesibles</h5></div></div>
+							<div class="row">
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Muertos</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12 col-lg-12">
+									<p id="demo8">Prueba</p>
+									</div></div></div>
+								<div class="col-sm-6"><h5 class="text-center">Eliminación Símbolos Inaccesibles</h5>
+								<div class="row"> <div class="col-sm-6 col-xl-12 col-lg-12">
+									<p id="demo9">Prueba</p>
+									</div></div></div>
+						   </div>              
+					  </div>
+            		</div>
+          		</div>
+    			</div>
+  			</div>
+			<div class="row">
+				<div class="row"><hr></div>
+				<div class="col-12">
+					 <ol class="carousel-indicators">
+					  <li data-target="#carouselExampleControls1" data-slide-to="0" class="active"></li>
+					  <li data-target="#carouselExampleControls1" data-slide-to="1" class="active"></li>
+					  <li data-target="#carouselExampleControls1" data-slide-to="2" class="active"></li>
+					</ol>
+					<a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
 	</div>
   </div>
 </div>
@@ -127,5 +191,20 @@
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("defaultOpen").click();
 	</script>
+	<script language="javascript" type="text/javascript">
+    function limitText(limitField, limitNum) {
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        }
+    }
+    </script>
+    <script type="text/javascript" src="js/program/agregarInputs.js"></script>
+    <script type="text/javascript" src="js/program/recibeGramatica.js"></script>
+    <script type="text/javascript" src="js/program/Muertos_Inaccesibles.js"></script>
+    <script type="text/javascript" src="js/program/SimbolosVacios.js"></script>
+    <script type="text/javascript" src="js/program/TablaVerdad.js"></script>
+    <script type="text/javascript" src="js/program/GeneraCombinaciones.js"></script>
+    <script type="text/javascript" src="js/program/SimbolosUnitarios.js"></script>
+    <script type="text/javascript" src="js/program/ListaElementos.js"></script>
   </body>
 </html>
