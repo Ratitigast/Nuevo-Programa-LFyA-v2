@@ -35,7 +35,7 @@
 </div>
 <div class="container mt-3">
   <div class="row">
-	  <div id="Inicio" class="tabcontent">
+	  <div id="Inicio" class="tabcontent table">
 		<div class="col-12">
 			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -68,18 +68,17 @@
 		</div>
 	</div>
 	<div id="ingresaG" class="container tabcontent col-xl-12">
-		<div class="container row">
-			<div class="col-4">
-			  <p>Recuerda: </p>
-			  <p>El símbolo de vacío debe representarse con '#' </p>
-			  <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y se activará la pestaña de resultados. </p>
-			</div>
-			  <div class="tab content col-4 col-lg-8" style="overflow-x:auto;">
-				  <table id="myTable">
-					  <tr>
+		<div class="tab container mt-3">
+		<div class="col-20 mt-3">
+			  <div class="table-responsive">
+				  <table id="myTable" class="table">
+					  <tr class="text-center">
 						<th>Ingresa tu gramática</th>
 					  </tr>
 					  <tr>
+						  <td><p>Recuerda: </p>
+						  <p>El símbolo de vacío debe representarse con '#' </p>
+						  <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y se activará la pestaña de resultados. </p></td>
 						<td><input type="text" class="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"></td>
 
 						<td><input type="text" class="produccion" placeholder="Producción"/></td>
@@ -88,7 +87,10 @@
 
 						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();">Iniciar</button></td>
 					  </tr>
-				</table></div></div>
+					</table>
+				</div>
+		</div>
+			</div>
 	</div>
 	<div id="Resultados" class="tabcontent col-xl-12">
 		<div class="tab container mt-3">
