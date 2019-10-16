@@ -6263,8 +6263,8 @@ a.close.disabled {
   color: #212529;
 }
 
-.carousel {
-  position: relative;
+.carousel{
+	position: relative;
 }
 
 .carousel.pointer-event {
@@ -6275,9 +6275,18 @@ a.close.disabled {
 .carousel-inner {
   position: relative;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
-
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 .carousel-inner::after {
   display: block;
   clear: both;

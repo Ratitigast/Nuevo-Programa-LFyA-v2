@@ -45,16 +45,16 @@
 					</ol>
 					<div class="carousel-inner">
 					  <div class="carousel-item active">
-						<img class="d-block w-100" src="images/intro.png" alt="First slide">              </div>
+						<img class="fill d-block w-100" src="images/intro.png" alt="First slide">              </div>
 					  <div class="carousel-item">
-						<img class="d-block w-100" src="images/1920x500.gif" alt="Second slide">
+						<img class="fill d-block w-100" src="images/1920x500.gif" alt="Second slide">
 						<div class="carousel-caption d-none d-md-block">
 						  <h5>Item 2 Heading</h5>
 						  <p>Item 2 Description</p>
 						</div>
 					  </div>
 					  <div class="carousel-item">
-						<img class="d-block w-100" src="images/1920x500.gif" alt="Third slide">              </div>
+						<img class="fill d-block w-100" src="images/1920x500.gif" alt="Third slide">              </div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -71,19 +71,23 @@
 		<div class="tab container mt-3">
 		<div class="col-20 mt-3">
 			  <div class="table-responsive">
-				  <table id="myTable" class="table">
-						<td style="text-align: center">Ingresa tu gramática</td>
+				  <table class="table">
+						<td COLSPAN="5" style="text-align: center"><h4>Ingresa tu gramática</h4></td>
 					  <tr>
 						  <td><p>Recuerda: </p>
 						  <p>El símbolo de vacío debe representarse con '#' </p>
 						  <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y se activará la pestaña de resultados. </p></td>
-						<td><input type="text" class="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"></td>
+						<td><table id="myTable" class="table">
+						<td><input pattern="[A-Z]*" required oninvalid="setCustomValidity('Ingresa solo una letra en mayúscula')" oninput="setCustomValidity('')" type="text" class="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"></td>
+						  <td><h5>:=</h5></td>
 
 						<td><input type="text" class="produccion" placeholder="Producción"/></td>
 
 						<td><button type="button" onclick="agregarInputs();">Agregar</button></td>
 
 						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();">Iniciar</button></td>
+
+					</table></td>
 					  </tr>
 					</table>
 				</div>
