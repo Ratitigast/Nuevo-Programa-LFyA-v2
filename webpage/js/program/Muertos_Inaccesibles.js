@@ -116,7 +116,6 @@ let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && 
   document.getElementById("demo4").appendChild(newtope);*/
   if(flag!=1){var print = "demo3";}
   else{var print = "demo8";}
-  document.getElementById(print).innerHTML = "Resultado Símbolos muertos:\n ";
 
   lT=ListaElementos(ls_nt,lista,print);
 
@@ -164,7 +163,6 @@ function SimbolosInaccesibles(ls_prod, ls_NT,flag){ //Recibe la lista de producc
   if(flag!=1){var print = "demo4";}
   else{var print = "demo9";}
 
-  document.getElementById(print).innerHTML = "Resultado Símbolos inaccesibles:\n ";
   lT=ListaElementos(this.ls_nt2,lista_2,print);
   for(var i=0;i<lista_2.length;i++){
     var newtope = document.createElement("P");

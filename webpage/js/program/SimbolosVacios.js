@@ -107,7 +107,6 @@ for (var i=0;i<this.ls_combinaciones.length; i++) {
     this.ls_prod3[i]=this.ls_prod3[i].filter(onlyUnique);
   }
   var print = "demo6";
-  document.getElementById(print).innerHTML = "Símbolos vacíos:\n ";
   if (firs_flag==true){
     value = ls_NT[0].toString();
     ls_NT.unshift(value+"'");

@@ -71,7 +71,6 @@ function SimbolosUnitarios(ls_NT){
   }
 
   var print = "demo7";
-  document.getElementById(print).innerHTML = "Símbolos Unitarios:\n ";
   lT=ListaElementos(ls_NT,this.ls_prod4,print);
   for(var i=0;i<ls_NT.length;i++){
     var newtope = document.createElement("P");
@@ -80,7 +79,6 @@ function SimbolosUnitarios(ls_NT){
   }
 
   var newtope = document.createElement("P");
-  newtope.innerHTML= "Repetimos Símbolos Muertos e inaccesibles: \n";
   document.getElementById(print).appendChild(newtope);
   var flag=1;
   recibeGramatica(flag);
