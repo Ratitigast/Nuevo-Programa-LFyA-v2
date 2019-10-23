@@ -29,7 +29,7 @@
 			  <h4> <button class="tablinks" onclick="openTab(event, 'ingresaG')">Ingresa Gramática</button></h4>
       	</div>
       	<div class="col-4 col-lg-4">
-			  <h4 class="col-xl-5"><button class="tablinks" onclick="openTab(event, 'Resultados')">Resultados</button></h4>
+			  <h4 class="col-xl-5"><button class="tablinks" onclick="openTab(event, 'Resultados')" id="resultados">Resultados</button></h4>
       	</div>
   </div>
 </div>
@@ -85,7 +85,7 @@
 						  </div></div></div>
 								<div class="col-sm-6">
 								<div class="row">
-									<img class="fit-image" src="images/sc.gif" >  
+									<img class="fit-image" src="images/sc.gif" alt="Lee las instrucciones">  
 								  </div></div>
 						</div>              
 					  </div>
@@ -109,16 +109,17 @@
 						<td COLSPAN="5" style="text-align: center"><h4>Ingresa tu gramática</h4></td>
 					  <tr>
 						  <td><p><strong>Recuerda</strong>: </p>
-					    <p><em>El símbolo de vacío debe representarse con <strong>'#' </strong></em></p>						    <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y se activará la pestaña de resultados. </p></td>
+					    <p><em>El símbolo de vacío debe representarse con <strong>'#' </strong></em></p>
+					    <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y te redigirá a la pestaña de resultados. </p></td>
 						<td><table id="myTable" class="table">
-						<td><input required pattern="[A-Z]{1}"  oninvalid="setCustomValidity('Ingresa solo una letra en mayúscula')" oninput="setCustomValidity('')" type="text" class="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);"></td>
+						<td><input required pattern="[A-Z]{1}"  oninvalid="setCustomValidity('Ingresa solo una letra en mayúscula')" oninput="setCustomValidity('')" type="text" class="nt" name="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);preventNumberInput(event);" onKeyUp="limitText(this,1);preventNumberInput(event);" id="nt"></td>
 						  <td><h5>:=</h5></td>
 
-						<td><input type="text" class="produccion" placeholder="Producción"/></td>
+						<td><input type="text" class= "produccion" name="produccion" placeholder="Producción" id="produccion"></td>
 
-						<td><button type="button" onclick="agregarInputs();">Agregar</button></td>
+						<td><button type="button" onclick="chkall();toUp();" id="add">Agregar</button></td>
 
-						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();">Iniciar</button></td>
+						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();$('#resultados').trigger('click');">Iniciar</button></td>
 
 					</table></td>
 					  </tr>
@@ -235,6 +236,52 @@
         }
     }
     </script>
+	<script>
+		function isEmpty(str){
+		return !str.replace(/\s+/, '').length;
+		}
+
+		document.getElementById("nt").addEventListener("input", function() {
+		  if( isEmpty(this.value) ) {
+			 alert( "No agregaste algún símbolo No Terminal." )
+		  }
+		});  
+		document.getElementById("produccion").addEventListener("input", function() {
+		  if( isEmpty(this.value) ) {
+			 alert( "No agregaste elementos a la producción." )
+		  }
+		});  
+		
+		function chkall(){
+			total =document.getElementsByName("nt");
+			  if( isEmpty(document.getElementsByName("nt")[total.length-1].value) || isEmpty(document.getElementsByName("produccion")[total.length-1].value)) {
+				 alert( "Los campos están vacíos." )
+			  }
+			else{agregarInputs();}
+		}
+
+		function preventNumberInput(e){
+			var keyCode = (e.keyCode ? e.keyCode : e.which);
+			if (keyCode > 47 && keyCode < 58 || keyCode > 95 && keyCode < 107 ){
+				e.preventDefault();
+			}
+		}
+
+		$(document).ready(function(){
+			$('#text_field').keypress(function(e) {
+				preventNumberInput(e);
+			});
+		})
+	</script>
+	<script>
+	function toUp(){
+			var total = document.getElementsByName("nt");
+			for(var i=0;i<total.length;i++){
+				upCase = total.[i].value.toUpperCase();
+				this.total.[i].value = upCase;	
+			}
+		}
+	</script>
     <script type="text/javascript" src="js/program/agregarInputs.js"></script>
     <script type="text/javascript" src="js/program/recibeGramatica.js"></script>
     <script type="text/javascript" src="js/program/Muertos_Inaccesibles.js"></script>
