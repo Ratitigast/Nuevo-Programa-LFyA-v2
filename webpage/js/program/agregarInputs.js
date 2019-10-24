@@ -9,10 +9,10 @@ function agregarInputs(){
   entrada.type='text';  //Incluye el atributo "type" al elemento <input>
   entrada.placeholder='No terminal';  //Incluye el atributo "placeholder" al elemento <input>
   entrada.setAttribute("name","nt");
-  entrada.setAttribute("onKeyUp","limitText(this,1);");
-  entrada.setAttribute("onKeyDown","limitText(this,1);");
-  entrada.setAttribute("pattern","[A-Z]*");
-  entrada.setAttribute("oninvalid","alert('Ingresa solo una letra mayúscula');");
+  entrada.setAttribute("class","nt");
+  entrada.setAttribute("onKeyUp","limitText(this,1);preventNumberInput(event);");
+  entrada.setAttribute("onKeyDown","limitText(this,1);preventNumberInput(event);");
+  entrada.setAttribute("style","text-transform: uppercase;");
 
   cell1.appendChild(entrada); //Agrega el elemento <input> a la tabla
 	var hlght = document.createElement('h5');
@@ -24,6 +24,7 @@ function agregarInputs(){
   entrada2.type='text';  //Incluye el atributo "type" al elemento <input>
   entrada2.placeholder='Producción';  //Incluye el atributo "placeholder" al elemento <input>
   entrada2.setAttribute("name","produccion");
+  entrada2.setAttribute("class","produccion");
 
   cell2.appendChild(entrada2); //Agrega el elemento <input> a la tabla
 

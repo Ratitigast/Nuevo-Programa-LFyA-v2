@@ -112,7 +112,7 @@
 					    <p><em>El símbolo de vacío debe representarse con <strong>'#' </strong></em></p>
 					    <p>Comienza a ingresar las reglas desde su regla inicial. Una vez que termines de ingresar las reglas de producción, da clic en iniciar y te redigirá a la pestaña de resultados. </p></td>
 						<td><table id="myTable" class="table">
-						<td><input required pattern="[A-Z]{1}"  oninvalid="setCustomValidity('Ingresa solo una letra en mayúscula')" oninput="setCustomValidity('')" type="text" class="nt" name="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);preventNumberInput(event);" onKeyUp="limitText(this,1);preventNumberInput(event);" id="nt"></td>
+						<td><input  style="text-transform: uppercase;" type="text" class="nt" name="nt" placeholder="No Terminal" onKeyDown="limitText(this,1);preventNumberInput(event);" onKeyUp="limitText(this,1);preventNumberInput(event);" id="nt"></td>
 						  <td><h5>:=</h5></td>
 
 						<td><input type="text" class= "produccion" name="produccion" placeholder="Producción" id="produccion"></td>
@@ -277,10 +277,10 @@
 	function toUp(){
 			var total = document.getElementsByName("nt");
 			for(var i=0;i<total.length;i++){
-				upCase = total.[i].value.toUpperCase();
-				this.total.[i].value = upCase;	
+				upCase = total[i].value.toUpperCase();
+				total[i].setAttribute("value",upCase);
 			}
-		}
+	}
 	</script>
     <script type="text/javascript" src="js/program/agregarInputs.js"></script>
     <script type="text/javascript" src="js/program/recibeGramatica.js"></script>
