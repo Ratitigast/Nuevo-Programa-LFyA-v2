@@ -119,7 +119,7 @@
 
 						<td><button type="button" onclick="chkall();toUp();" id="add">Agregar</button></td>
 
-						<td><button type="button" onclick="recibeGramatica();Muertos_Inaccesibles();$('#resultados').trigger('click');">Iniciar</button></td>
+						<td><button type="button" onclick="eliminachild();recibeGramatica();Muertos_Inaccesibles();$('#resultados').trigger('click');">Iniciar</button></td>
 
 					</table></td>
 					  </tr>
@@ -280,6 +280,36 @@
 				upCase = total[i].value.toUpperCase();
 				total[i].setAttribute("value",upCase);
 			}
+	}
+	</script>
+	<script>
+	function eliminachild() {
+	  var list = document.getElementById("demo3");
+	  var list1 = document.getElementById("demo4");
+	  var list2 = document.getElementById("demo6");
+	  var list3 = document.getElementById("demo7");
+	  var list4 = document.getElementById("demo8");
+	  var list5 = document.getElementById("demo9");
+		
+	  while(list.firstChild){
+		  list.removeChild(list.firstChild);
+	  }
+		while(list1.firstChild){
+			  list1.removeChild(list1.firstChild);
+		}
+		while(list2.firstChild){
+			  list2.removeChild(list2.firstChild);
+		}
+		while(list3.firstChild){
+			  list3.removeChild(list3.firstChild);
+		}
+		while(list4.firstChild){
+			  list4.removeChild(list4.firstChild);
+		}
+		while(list5.firstChild){
+			  list5.removeChild(list5.firstChild);
+		}
+
 	}
 	</script>
     <script type="text/javascript" src="js/program/agregarInputs.js"></script>
