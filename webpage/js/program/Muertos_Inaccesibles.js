@@ -110,7 +110,7 @@ function Muertos_Inaccesibles(flag){
   document.getElementById("demo3").innerHTML = "Lista de NT1: "+ this.ls_nt1;
   document.getElementById("demo4").innerHTML = "Lista de T1: "+ this.ls_prod1;
   //Mostramos la lista P1
-let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && v)
+  let newArr = this.ls_prod1.map((v, i) => v.splice(0, 0, this.ls_nt1[i],':=') && v)
   var newtope = document.createElement("P");
   newtope.innerHTML="Lista P1 "+newArr;
   document.getElementById("demo4").appendChild(newtope);*/

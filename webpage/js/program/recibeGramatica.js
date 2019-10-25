@@ -14,7 +14,7 @@ function recibeGramatica(flag){
 
   for (var i=0;i<nt.length;i++)
   {
-      this.ls_nt[i]=nt[i].value;
+      this.ls_nt[i]=nt[i].value.toUpperCase();
   }
   for (var i=0;i<prod.length;i++)
   {
