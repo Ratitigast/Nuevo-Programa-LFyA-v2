@@ -66,7 +66,7 @@ function Muertos_Inaccesibles(flag){
             for(var k = 0; k <prod.length; k++ ){
               var c = prod.charAt(k);//Se toma el caracter actual de la regla
                   d = c.toUpperCase();//Pasamos el elemento a mayúsculas
-              if(this.ls_nt.includes(c)){
+              if(this.ls_nt1.includes(c)){
                 cuentain++;
               }
               if(c==d){

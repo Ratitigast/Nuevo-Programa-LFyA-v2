@@ -31,3 +31,10 @@ G → A|Baa|a|#|Z
 Z → Gh|Abb|Cz|e|A
 A → Zg|eb|Z|72|#
 H → Bcc|ccd|ez|Fh
+
+A Bab|BCde|aCe|#
+B Baba|aBA|#
+C #|ade|adDe|a|d|Hi
+D Dad|aC|B|A|F
+F Fa|Fe|Fb
+G aB|aD|aC
