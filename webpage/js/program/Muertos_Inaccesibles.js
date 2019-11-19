@@ -38,8 +38,26 @@ function Muertos_Inaccesibles(flag){
     this.ls_prod1[i]=ls_aux;
     ls_aux=[]; //Vaciamos el arreglo para que guarde las nuevas reglas de la siguiente produccion
   }
-
+	////////////////////////////////////////////////////////////
+	for(var i=0;i<this.ls_prod.length;i++){ //El límite es el tamaño de NT que generan producciones
+    	for(var j=0;j<this.ls_prod[i].length;j++){
+		notlowercase=this.ls_prod[i][j].toString();
+			if(notlowercase != notlowercase.toUpperCase()){
+				for(var k = 0; k < notlowercase.length; k++){
+					 c = notlowercase.charAt(k);
+          			 if(c == c.toUpperCase()){
+						  if(this.ls_nt1.includes(c) && !this.ls_nt1.includes(ls_nt[i])){
+							  this.ls_nt1.push(ls_nt[i]);
+						  }
+					 }
+				}
+				
+			}
+		}
+	}
+////////////////////////////////
   var lista = new Array(); //Lista de producciones primer algoritmo
+  var lista_filtered = new Array();
 
   var nt_n = new Array(); // Lista de no terminales auxiliar
 
@@ -95,15 +113,15 @@ function Muertos_Inaccesibles(flag){
         }
       }
     }
-    console.log(lista);
+    //console.log(lista);
 
   } while(act);
 
 
 
-
   this.ls_nt1=this.ls_nt1.filter(Boolean); //Eliminamos vacíos, 0, undefined,...
-  this.ls_prod1= this.ls_prod1.map(it => it.filter(_ => true)).filter(sub => sub.length);
+	console.log(lista)
+  lista= lista.map(it => it.filter(_ => true)).filter(sub => sub.length);
 
 
   /*
@@ -121,7 +139,7 @@ function Muertos_Inaccesibles(flag){
 
   for(var i=0;i<lista.length;i++){
     var newtope = document.createElement("P");
-    newtope.innerHTML= ls_nt[i]+" := "+lista[i]+"\n";
+    newtope.innerHTML= nt_n[i]+" := "+lista[i]+"\n";
     document.getElementById(print).appendChild(newtope);
   }
 
