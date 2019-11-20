@@ -38,3 +38,21 @@ C #|ade|adDe|a|d|Hi
 D Dad|aC|B|A|F
 F Fa|Fe|Fb
 G aB|aD|aC
+
+A aB|aC|a|b
+C e|a|b|aC|#
+D aD|bD|eD
+E bA|a|e|aF
+H bc|aD|b|E
+G aG|bG|eG
+
+A aD|aC|a
+B bF|bD|a
+C a|#
+D a|aB|C
+E bE|dE|eE
+
+X aYbed|YYZ|ab
+Y YeeZeY|YZ|a|#
+Z aWf|YZY|#|Y|Z
+V a|b|e|eWZ
