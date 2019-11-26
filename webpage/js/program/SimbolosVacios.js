@@ -44,7 +44,14 @@ do{
                         this.ls_combinaciones.push(combinacion);//Almacenamos cada combinación
 
                   }
+					if(c==ls_NT[0]){
+				  firs_cont = true;
+					}
                 }
+			  
+				if(ls_prod[0].indexOf('#') != -1 && firs_cont == true){
+				  firs_flag = true;
+			  	}
           }
         }
       }
