@@ -3,6 +3,26 @@ function SimbolosUnitarios(ls_NT){
   var ls_index = new Array();
   var saved_pos = new Array();
 
+  var cont =0;
+  for(var i = 0; i < this.ls_prod3.length; i++){
+    for(var j = 0; j < this.ls_prod3[i].length; j++){
+      var prod = this.ls_prod3[i][j].toString();//Se toma la regla a analizar
+      var nt = ls_NT[i].toString();//Se toma el NT correspondiente a la producción
+      if(prod == prod.toUpperCase()){//Si la producción no contiene Terminales, quiere decir que solo contiene NT potenciales a crear vacíos
+        for (var k = 0; k < prod.length; k++){//Analizamos cada elemento de esa regla
+          var c = prod.charAt(k);//Se toma el caracter actual de la regla
+              if(c==nt){
+                cont++;
+              }
+            }
+            if(prod.length==cont){
+              this.ls_prod3[i].splice(j,1);
+            }
+            cont=0;
+      }
+    }
+  }
+  
   ls_values = index_u(this.ls_prod3,ls_NT);
 
   this.ls_nt_u = ls_values[1];
@@ -33,7 +53,6 @@ function SimbolosUnitarios(ls_NT){
     found_same = this.prod_u[i].indexOf(this.ls_nt_u[i]);
     if(found_same!=-1){this.prod_u[i].splice(found_same,1);}
   }
-
   this.ls_prod4 = this.ls_prod3;
 
   for(var i = 0; i < this.ls_index_u.length; i++){
@@ -41,7 +60,7 @@ function SimbolosUnitarios(ls_NT){
 
       found_indexU = this.ls_nt_u.indexOf(this.ls_prod4[i][this.ls_index_u[i][j]]);
       insert_array = this.ls_prod4[i];
-      insert_array.push(prod_u[found_indexU]);
+      insert_array.push(this.prod_u[found_indexU]);
       this.ls_prod4[i] = insert_array;
       this.ls_prod4[i] = getTogueter(this.ls_prod4[i]);
 
