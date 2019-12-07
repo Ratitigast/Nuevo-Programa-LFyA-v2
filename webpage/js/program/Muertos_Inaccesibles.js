@@ -138,6 +138,7 @@ function Muertos_Inaccesibles(flag){
   lT=ListaElementos(ls_nt,lista,print);
 
   for(var i=0;i<lista.length;i++){
+	  lista[i]=lista[i].filter(onlyUnique);
     var newtope = document.createElement("P");
     newtope.innerHTML= nt_n[i]+" := "+lista[i]+"\n";
     document.getElementById(print).appendChild(newtope);
