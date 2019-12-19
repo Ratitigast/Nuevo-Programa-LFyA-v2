@@ -2,6 +2,7 @@
 
 function Muertos_Inaccesibles(flag){
   var act = false;
+  var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 //Esta functión revisará las producciones de los NT generadores, buscando si alguna
 //de las reglas de la produccion CONTIENE ÚNICAMENTE TERMINALES.
   this.ls_nt1=new Array(); //Lista NT1 en la que se guardarán los NT que cumplan con tener una regla de únicamente Terminales
@@ -29,7 +30,7 @@ function Muertos_Inaccesibles(flag){
       else if(notlowercase != notlowercase.toUpperCase()){
         for(var k = 0; k < notlowercase.length; k++){
           c = notlowercase.charAt(k);
-          if(c == c.toLowerCase())
+          if(c == c.toLowerCase() || format.test(c))
             if(!term.includes(c))
               term.push(c);
         }
@@ -38,7 +39,8 @@ function Muertos_Inaccesibles(flag){
     this.ls_prod1[i]=ls_aux;
     ls_aux=[]; //Vaciamos el arreglo para que guarde las nuevas reglas de la siguiente produccion
   }
-
+console.log("Lista de T");
+console.log(term);
   var lista = new Array(); //Lista de producciones primer algoritmo
 
   var nt_n = new Array(); // Lista de no terminales auxiliar
@@ -68,11 +70,11 @@ function Muertos_Inaccesibles(flag){
                   d = c.toUpperCase();//Pasamos el elemento a mayúsculas
               if(this.ls_nt.includes(c)){
                 cuentain++;
+                if(c==d){
+                  cuentaup++;
+                }
               }
-              if(c==d){
-                cuentaup++;
-              }
-            }
+
             if(cuentain == cuentaup && !lista[i].includes(prod)){
               lista[i].push(prod);
               ls_prod[i][j]= "";
@@ -80,6 +82,7 @@ function Muertos_Inaccesibles(flag){
                 nt_n.push(ls_nt[i]);
                 act = true;
               }
+            }
             }
             /*for(var k = 0; k < nt_n.length; k++){ //Para cada elemento en la lista de No Terminales con producciones que generan solo terminales
               if(prod.includes(nt_n[k]) && !lista[i].includes(prod)){ // Si prod incluye algun simbolo de nt_n (podemos llegar a algun terminal) agregamos la produccion a la lista en la posicion correspondiente

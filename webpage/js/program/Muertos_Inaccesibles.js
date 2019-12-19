@@ -2,6 +2,7 @@
 
 function Muertos_Inaccesibles(flag){
   var act = false;
+	var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 //Esta functión revisará las producciones de los NT generadores, buscando si alguna
 //de las reglas de la produccion CONTIENE ÚNICAMENTE TERMINALES.
   this.ls_nt1=new Array(); //Lista NT1 en la que se guardarán los NT que cumplan con tener una regla de únicamente Terminales
@@ -29,7 +30,7 @@ function Muertos_Inaccesibles(flag){
       else if(notlowercase != notlowercase.toUpperCase()){
         for(var k = 0; k < notlowercase.length; k++){
           c = notlowercase.charAt(k);
-          if(c == c.toLowerCase())
+          if(c == c.toLowerCase() || format.test(c))
             if(!term.includes(c))
               term.push(c);
         }
@@ -38,6 +39,8 @@ function Muertos_Inaccesibles(flag){
     this.ls_prod1[i]=ls_aux;
     ls_aux=[]; //Vaciamos el arreglo para que guarde las nuevas reglas de la siguiente produccion
   }
+console.log("Lista de T");
+	console.log(term);
 	////////////////////////////////////////////////////////////
 	for(var i=0;i<this.ls_prod.length;i++){ //El límite es el tamaño de NT que generan producciones
     	for(var j=0;j<this.ls_prod[i].length;j++){
@@ -58,6 +61,11 @@ function Muertos_Inaccesibles(flag){
 ////////////////////////////////
   var lista = new Array(); //Lista de producciones primer algoritmo
   var lista_filtered = new Array();
+	var flag_nb = false;
+	var yb=false;
+	
+	console.log("Lista NT1");
+	console.log(this.ls_nt1);
 
   var nt_n = new Array(); // Lista de no terminales auxiliar
 
@@ -86,18 +94,26 @@ function Muertos_Inaccesibles(flag){
                   d = c.toUpperCase();//Pasamos el elemento a mayúsculas
               if(this.ls_nt1.includes(c)){
                 cuentain++;
+				  if(c==d){
+                	cuentaup++;
+              		}
+				  
               }
-              if(c==d){
-                cuentaup++;
-              }
+				else{
+					if(c==d && term.includes(c)==false){
+						flag_nb=true;
+					}
+				}
+              
             }
-            if(cuentain == cuentaup && !lista[i].includes(prod)){
+            if(cuentain == cuentaup && !lista[i].includes(prod)&&flag_nb==false){
               lista[i].push(prod);
               ls_prod[i][j]= "";
               if(!nt_n.includes(ls_nt[i])){
                 nt_n.push(ls_nt[i]);
                 act = true;
               }
+				flag_nb=false;
             }
             /*for(var k = 0; k < nt_n.length; k++){ //Para cada elemento en la lista de No Terminales con producciones que generan solo terminales
               if(prod.includes(nt_n[k]) && !lista[i].includes(prod)){ // Si prod incluye algun simbolo de nt_n (podemos llegar a algun terminal) agregamos la produccion a la lista en la posicion correspondiente
@@ -109,7 +125,7 @@ function Muertos_Inaccesibles(flag){
                 }
               }
             }*/
-          }
+          }flag_nb=false;
         }
       }
     }
@@ -135,16 +151,17 @@ function Muertos_Inaccesibles(flag){
   if(flag!=1){var print = "demo3";}
   else{var print = "demo8";}
 
-  lT=ListaElementos(ls_nt,lista,print);
+  lT=ListaElementos(this.ls_nt1,lista,print);
+	console.log(lista);
 
   for(var i=0;i<lista.length;i++){
 	  lista[i]=lista[i].filter(onlyUnique);
     var newtope = document.createElement("P");
-    newtope.innerHTML= nt_n[i]+" := "+lista[i]+"\n";
+    newtope.innerHTML= this.ls_nt1[i]+" := "+lista[i]+"\n";
     document.getElementById(print).appendChild(newtope);
   }
 
-  lista = SimbolosInaccesibles(lista, ls_nt.slice(),flag);
+  lista = SimbolosInaccesibles(lista, this.ls_nt1.slice(),flag);
 
 }
 

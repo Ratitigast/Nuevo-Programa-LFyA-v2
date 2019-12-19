@@ -56,3 +56,31 @@ X aYbed|YYZ|ab
 Y YeeZeY|YZ|a|#
 Z aWf|YZY|#|Y|Z
 V a|b|e|eWZ
+///////////////////////////////////////////
+A aC|aB|ZE|aa|ZZa|B
+E a|b|Z|M|B|bbb
+C #|eee|eza|bA|meza|ZM
+B @|mE|e|Zesar|A|mC
+D M|@E|hi|mB|dedo|ab
+M adios|aA|BB|CE|mA|io
+
+M yOe|ONxe|Pxy|#|xyz|xyz
+N Nxyz|xPO|yPO|#|Qxyz|NOQ
+O #|xyz|xyPz|e|OO|exy
+P M|Rx|O|xyzee|x|y
+Q Qz|Qx|Qy|xyQ|xzQ
+R xM|xN|xO|z|PPe
+
+B Ad|aaF|H|#|eM
+Z a|bz|gz|d
+A a|i|u|d
+M bk|e|u|i|B
+k d|#b|e|aA
+
+S Abc|CDab|Cabc|Gij|B
+A Bdc|AbcD|Ihb|Hbc
+B CAD|cda|DHab|Gha
+C bcdJ|BAD|abCGd|Hcde
+D ab|cdf|bce
+E AB|bcd|DGc
+F Fb|Fcdj|Fbc
