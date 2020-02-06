@@ -1,0 +1,86 @@
+A ? xN|bb|A|#
+N ? aZ|N|aaF|Fa|F
+F ? ab7|op9|N|Nr|AEA
+E ? a|b|op|E|#
+
+Otra prueba
+
+X → Xwy|7z|ab|34|Y
+W → Z|341|#|mb|!!|X
+Z → w|5nxm|Rab|30
+Y → #|Z|?|W|2!!|xw
+
+A → xN|bb|#|F
+N → za|aa|E|SA
+F → ab7|op9|Qr|A
+E → Ea|EE|zb!
+
+A → ab|#|be|h
+B → #|ea|gD|Ma
+E → E|sm
+D → #|Da|be|H
+H → bg|h|#|Ba
+
+S → aAb|cEB|CE
+A → dBE|eeC
+B → ff|D
+C → gfB|ae
+D → h
+
+G → A|Baa|a|#|Z
+Z → Gh|Abb|Cz|e|A
+A → Zg|eb|Z|72|#
+H → Bcc|ccd|ez|Fh
+
+A Bab|BCde|aCe|#
+B Baba|aBA|#
+C #|ade|adDe|a|d|Hi
+D Dad|aC|B|A|F
+F Fa|Fe|Fb
+G aB|aD|aC
+
+A aB|aC|a|b
+C e|a|b|aC|#
+D aD|bD|eD
+E bA|a|e|aF
+H bc|aD|b|E
+G aG|bG|eG
+
+A aD|aC|a
+B bF|bD|a
+C a|#
+D a|aB|C
+E bE|dE|eE
+
+X aYbed|YYZ|ab
+Y YeeZeY|YZ|a|#
+Z aWf|YZY|#|Y|Z
+V a|b|e|eWZ
+///////////////////////////////////////////
+A aC|aB|ZE|aa|ZZa|B
+E a|b|Z|M|B|bbb
+C #|eee|eza|bA|meza|ZM
+B @|mE|e|Zesar|A|mC
+D M|@E|hi|mB|dedo|ab
+M adios|aA|BB|CE|mA|io
+
+M yOe|ONxe|Pxy|#|xyz|xyz
+N Nxyz|xPO|yPO|#|Qxyz|NOQ
+O #|xyz|xyPz|e|OO|exy
+P M|Rx|O|xyzee|x|y
+Q Qz|Qx|Qy|xyQ|xzQ
+R xM|xN|xO|z|PPe
+
+B Ad|aaF|H|#|eM
+Z a|bz|gz|d
+A a|i|u|d
+M bk|e|u|i|B
+k d|#b|e|aA
+
+S Abc|CDab|Cabc|Gij|B
+A Bdc|AbcD|Ihb|Hbc
+B CAD|cda|DHab|Gha
+C bcdJ|BAD|abCGd|Hcde
+D ab|cdf|bce
+E AB|bcd|DGc
+F Fb|Fcdj|Fbc
